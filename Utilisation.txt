@@ -1,0 +1,22 @@
+SpotiStats - Utilisation
+========================
+
+1. Lancer le serveur (ouvre le port 8888, accessible seulement depuis ce PC)
+   cd /home/eliot/IA/SpotiStats && python -m http.server 8888 --bind 127.0.0.1
+
+2. Ouvrir l'appli dans le navigateur
+   http://127.0.0.1:8888
+   (utiliser 127.0.0.1, PAS localhost : Spotify refuserait la redirection)
+   Au premier lancement, coller le Client ID de l'appli Spotify Developer.
+
+3. Arrêter le serveur et fermer le port
+   Ctrl+C dans le terminal du serveur.
+
+   Si le serveur tourne encore ailleurs :
+   ss -ltnp | grep 8888     # vérifier si le port est ouvert (rien = fermé)
+   fuser -k 8888/tcp        # tuer le processus qui l'occupe
+
+Rappel config Spotify Developer
+   Redirect URI : http://127.0.0.1:8888/callback
+   API : Web API
+   Autres comptes : à ajouter dans User Management

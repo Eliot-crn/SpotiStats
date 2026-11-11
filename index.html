@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SpotiStats</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>SpotiStats</h1>
+  <div id="actions" hidden>
+    <button id="btn-client">Changer le Client ID</button>
+    <button id="btn-logout">Déconnexion</button>
+  </div>
+</header>
+<main>
+  <section id="login" class="card" hidden>
+    <h2>Connexion</h2>
+    <p>Crée une appli sur le tableau de bord développeur Spotify, ajoute l'URI de redirection <code>http://127.0.0.1:8888/callback</code>, puis colle son Client ID :</p>
+    <input id="client-id" placeholder="Client ID" autocomplete="off" size="36">
+    <button id="btn-login">Se connecter avec Spotify</button>
+    <p id="login-msg" class="err"></p>
+  </section>
+  <div id="dash" hidden>
+    <div class="grid">
+      <section class="card" id="s-profile"><h2>Profil</h2><div class="body"></div></section>
+      <section class="card" id="s-now"><h2>En cours de lecture <button id="btn-now" class="small">Rafraîchir</button></h2><div class="body"></div></section>
+    </div>
+    <h2 class="sep">Tops <select id="range">
+      <option value="short_term">4 semaines</option>
+      <option value="medium_term">6 mois</option>
+      <option value="long_term">Depuis toujours</option>
+    </select></h2>
+    <div class="grid">
+      <section class="card" id="s-topartists"><h2>Top artistes</h2><div class="body"></div></section>
+      <section class="card" id="s-toptracks"><h2>Top titres</h2><div class="body"></div></section>
+    </div>
+    <h2 class="sep">Stats dérivées des tops</h2>
+    <div class="grid" id="derived">
+      <section class="card" id="d-genres"><h2>Genres</h2><div class="body"></div></section>
+      <section class="card" id="d-decades"><h2>Décennies de sortie</h2><div class="body"></div></section>
+      <section class="card" id="d-misc"><h2>Résumé des titres</h2><div class="body"></div></section>
+      <section class="card" id="d-artists"><h2>Artistes les plus représentés (top titres)</h2><div class="body"></div></section>
+      <section class="card" id="d-stable"><h2>Stabilité entre périodes</h2><div class="body"></div></section>
+    </div>
+    <h2 class="sep">Écoutes récentes</h2>
+    <div class="grid">
+      <section class="card" id="r-list"><h2>50 dernières écoutes</h2><div class="body"></div></section>
+      <section class="card" id="r-hours"><h2>Par heure</h2><div class="body"></div></section>
+      <section class="card" id="r-days"><h2>Par jour de semaine</h2><div class="body"></div></section>
+    </div>
+    <h2 class="sep">Bibliothèque <span id="lib-load" class="muted"></span></h2>
+    <div class="grid">
+      <section class="card" id="l-counts"><h2>Chiffres</h2><div class="body"></div></section>
+      <section class="card" id="l-years"><h2>Titres likés par année d'ajout</h2><div class="body"></div></section>
+      <section class="card" id="l-artists"><h2>Top artistes des titres likés</h2><div class="body"></div></section>
+    </div>
+  </div>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="stats.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
